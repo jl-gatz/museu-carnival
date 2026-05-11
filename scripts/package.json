@@ -1,0 +1,5 @@
+{
+  "bin": {
+    "museu-init": "scripts/setup/init.js"
+  }
+}
