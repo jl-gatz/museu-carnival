@@ -1,0 +1,61 @@
+[project]
+name = "museu-informatica"
+version = "0.1.0"
+description = "Pipeline editorial de materiais do museu de informática"
+authors = [
+    {name = "lgaubatz@unicamp.br"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "pyyaml (>=6.0.3,<7.0.0)",
+    "markdown (>=3.10.2,<4.0.0)",
+    "rich (>=15.0.0,<16.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+
+[tool.taskipy.tasks]
+
+run = "python scripts/build/main.py"
+
+lint = "ruff check ."
+
+format = "ruff format ."
+
+fix = "ruff check . --fix"
+
+clean = """
+python scripts/utils/clean.py
+"""
+
+dataset = """
+python scripts/build/generate_dataset.py
+"""
+
+render = """
+python scripts/build/render.py
+"""
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.15.12,<0.16.0)",
+    "pytest (>=9.0.3,<10.0.0)",
+    "pytest-cov (>=7.1.0,<8.0.0)",
+    "taskipy (>=1.14.1,<2.0.0)"
+]

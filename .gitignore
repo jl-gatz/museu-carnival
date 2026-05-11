@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Poetry
+.venv/
+
+# Logs
+logs/
+*.log
+
+# Builds
+builds/latest/
+builds/*
+
+# Output
+output/
+
+# Generated JSON
+content/json/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Cache
+.pytest_cache/
+.ruff_cache/
+
+# Environment
+.env
+
+# InDesign temp
+*.idlk
