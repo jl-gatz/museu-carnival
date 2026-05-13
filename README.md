@@ -17,5 +17,5 @@ poetry shell
 ## Build
 
 ```bash
-task build
+task run
 ```
