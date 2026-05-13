@@ -1,0 +1,103 @@
+%!Adobe-FontList 1.25
+%Locale:0x416
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:MacDingbats
+FamilyName:Mac Dingbats
+StyleName:Regular
+FullName:Mac Dingbats
+MenuName:Mac Dingbats
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\lgaubatz\Documents\museu\TEMPLATES\Pasta template-com-GREP\Document fonts\MAC_DING.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:21452
+FileModTime:1774017844
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Mac Dingbats
+NameArray:0,Win,1,Mac Dingbats
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+FullName:Minion Pro
+MenuName:Minion Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\lgaubatz\Documents\museu\TEMPLATES\Pasta template-com-GREP\Document fonts\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:218640
+FileModTime:1774610993
+WeightClass:400
+WidthClass:5
+AngleClass:0
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:VirtualWorld-Regular
+FamilyName:Virtual World
+StyleName:Regular
+FullName:Virtual World Regular
+MenuName:Virtual World
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\lgaubatz\Documents\museu\TEMPLATES\Pasta template-com-GREP\Document fonts\VirtualWorld.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:16936
+FileModTime:1774017854
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Virtual World Regular
+NameArray:0,Mac,4,Virtual World Regular
+NameArray:0,Win,1,Virtual World
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Wingdings-Regular
+FamilyName:Wingdings
+StyleName:Regular
+FullName:Wingdings
+MenuName:Wingdings
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\lgaubatz\Documents\museu\TEMPLATES\Pasta template-com-GREP\Document fonts\wingding.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:82180
+FileModTime:1711956127
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Wingdings
+NameArray:0,Win,1,Wingdings
+%EndFont
+
