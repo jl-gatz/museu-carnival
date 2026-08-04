@@ -4,8 +4,9 @@ import re
 # ----------------------------
 # REGEX
 # ----------------------------
-
-TIMELINE_REGEX = re.compile(r"[-\s]*?(\d{3,4})\s*(?:\:|\|)\s*([^:]+):\s*(.+)")
+TIMELINE_RE = re.compile(
+    r"^\s*[-*+]\s+(?P<ano>\d{4})\s*\|\s*(?P<subtitulo>[^:]+?)\s*:\s*(?P<texto>.+?)\s*$"
+)
 
 
 # ----------------------------
@@ -24,16 +25,17 @@ def clean_timeline_line(line):
 
 
 def parse_timeline_line(line):
-
-    clean_line = clean_timeline_line(line)
-
-    match = TIMELINE_REGEX.match(clean_line)
+    match = TIMELINE_RE.match(line)
 
     if not match:
         return None
 
+    ano = match.group("ano").strip()
+    subtitulo = match.group("subtitulo")
+    texto = match.group("texto").strip()
+
     return {
-        "ano": match.group(1).strip(),
-        "subtitulo": match.group(2).strip(),
-        "texto": match.group(3).strip(),
+        "ano": ano,
+        "subtitulo": subtitulo.strip() if subtitulo else "",
+        "texto": texto,
     }

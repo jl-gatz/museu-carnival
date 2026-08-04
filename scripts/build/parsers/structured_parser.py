@@ -1,4 +1,3 @@
-from parsers.timeline_parser import parse_timeline_line
 from renders.timeline_renderer import render_timeline_markup
 from utils.normalizer import normalize
 
@@ -32,6 +31,7 @@ def parse_structured(content):
         "por_que_importa": {"titulo": "Por que importa?", "texto": ""},
         "linha_do_tempo": {"titulo": "Linha do tempo", "itens": []},
         "curiosidades": {"titulo": "Curiosidades", "itens": []},
+        "curiosidade_destaque": {"titulo": "", "texto": ""},
         "explore_mais": {"titulo": "Explore mais", "texto": ""},
     }
 
@@ -41,6 +41,12 @@ def parse_structured(content):
     # ----------------------------
     # FLUSH BUFFER
     # ----------------------------
+
+    def append_paragraph(section, field, text):
+        current_text = data[section][field]
+        data[section][field] = (
+            current_text + "\r" + text if current_text else text
+        )
 
     def flush_buffer():
 
@@ -53,16 +59,23 @@ def parse_structured(content):
             return
 
         if current_section == "linha_fina":
-            data["linha_fina"] = text
+            data["linha_fina"] = (
+                data["linha_fina"] + " " + text
+                if data["linha_fina"]
+                else text
+            )
 
         elif current_section == "o_que_e":
-            data["o_que_e"]["texto"] = text
+            append_paragraph("o_que_e", "texto", text)
 
         elif current_section == "por_que_importa":
-            data["por_que_importa"]["texto"] = text
+            append_paragraph("por_que_importa", "texto", text)
+
+        elif current_section == "curiosidade_destaque":
+            append_paragraph("curiosidade_destaque", "texto", text)
 
         elif current_section == "explore_mais":
-            data["explore_mais"]["texto"] = text
+            append_paragraph("explore_mais", "texto", text)
 
         buffer = []
 
@@ -102,10 +115,22 @@ def parse_structured(content):
                 "por_que_importa",
                 "linha_do_tempo",
                 "curiosidades",
+                "curiosidade_destaque",
                 "explore_mais",
             ]
 
             current_section = section if section in valid_sections else None
+
+        # ----------------------------
+        # SUBTÍTULO DA CURIOSIDADE EM DESTAQUE
+        # ----------------------------
+
+        elif (
+            line.startswith("### ")
+            and current_section == "curiosidade_destaque"
+        ):
+            flush_buffer()
+            data["curiosidade_destaque"]["titulo"] = line[4:].strip()
 
         # ----------------------------
         # SECTION HANDLERS
