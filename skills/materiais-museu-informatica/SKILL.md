@@ -40,10 +40,14 @@ Não inventar especificações para preencher lacunas. Fazer uma pergunta soment
    - Traduzir a técnica por função e experiência concreta antes de usar números.
    - Escolher poucos detalhes memoráveis; evitar transformar o painel em ficha de especificações.
    - Relacionar o equipamento à mudança histórica que ele representa.
+   - Selecionar uma curiosidade especialmente forte para a área `curiosidade_destaque`.
 
 5. **Redigir no contrato Markdown**
    - Ler [contrato-editorial.md](references/contrato-editorial.md).
    - Entregar Markdown puro, com YAML e labels estáveis; não alterar labels para combinar com a prosa.
+   - Usar a ordem vigente: `o_que_e`, `por_que_importa`, `linha_do_tempo`, `curiosidades`, `curiosidade_destaque` e `explore_mais`.
+   - Formatar a linha do tempo como `- ANO | Título do evento: descrição`.
+   - Em `curiosidade_destaque`, usar um H3 curto como título e um texto explicativo breve.
    - Manter parágrafos curtos, linguagem clara, precisão técnica e tom institucional com leve vivacidade.
    - Preservar o modelo solicitado pelo usuário quando ele fornecer um exemplo mais recente.
 
@@ -57,16 +61,20 @@ Não inventar especificações para preencher lacunas. Fazer uma pergunta soment
 7. **Preparar para MD→JSON→InDesign**
    - Considerar o Markdown a interface humana e o JSON a interface da máquina.
    - Manter frontmatter e seções estruturadas; listas e linha do tempo não devem virar texto solto.
+   - Usar caminho relativo à raiz do projeto no campo `imagem`, normalmente em `assets/imagens/`.
    - Manter labels dos frames independentes do layout. Templates podem mudar ordem e dimensões sem mudar o contrato.
+   - Tratar `curiosidade_destaque` como objeto com `titulo` e `texto`.
+   - Usar na curiosidade em destaque os estilos `P_CuriosidadeDestaque_Titulo` e `P_CuriosidadeDestaque_Texto`.
    - Usar a imagem final em frame nomeado, destinada a posicionamento por script com `.place()`.
    - Preservar a separação: Python orquestra dataset/arquivos; JSX renderiza no InDesign, aplica estilos, salva e fecha.
 
 8. **Fazer a revisão final**
    - Conferir identidade do modelo e data da unidade.
    - Conferir cada número, sigla e superlativo.
-   - Remover repetições entre `o_que_e` e `por_que_importa`.
-   - Verificar que linha fina, texto e curiosidades cabem no layout.
-   - Validar YAML, labels, listas e caminhos de imagem antes da conversão.
+   - Remover repetições entre `o_que_e`, `por_que_importa`, `curiosidades` e `curiosidade_destaque`.
+   - Verificar que linha fina, texto, curiosidades e destaque cabem no layout.
+   - Validar YAML, labels, listas, linha do tempo e caminhos de imagem antes da conversão.
+   - Confirmar que `curiosidade_destaque` contém um H3 e texto explicativo.
    - Confirmar que a imagem não acrescenta peças inexistentes nem confunde a unidade do acervo com uma variante.
 
 ## Entregas
@@ -74,7 +82,7 @@ Não inventar especificações para preencher lacunas. Fazer uma pergunta soment
 Adaptar a entrega ao pedido:
 
 - **Pesquisa:** síntese factual, pontos incertos e fontes.
-- **Texto:** bloco Markdown pronto para o parser.
+- **Texto:** bloco Markdown pronto para o parser no template vigente.
 - **Imagem:** prompt final ou imagem gerada na proporção correta.
 - **Pacote completo:** pesquisa resumida, Markdown, direção/arquivo visual e checklist de produção.
 - **Revisão:** apontar problemas primeiro e devolver uma versão corrigida.
