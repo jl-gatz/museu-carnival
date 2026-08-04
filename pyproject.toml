@@ -10,7 +10,8 @@ requires-python = ">=3.13,<4.0"
 dependencies = [
     "pyyaml (>=6.0.3,<7.0.0)",
     "markdown (>=3.10.2,<4.0.0)",
-    "rich (>=15.0.0,<16.0.0)"
+    "rich (>=15.0.0,<16.0.0)",
+    "watchdog (>=6.0.0,<7.0.0)"
 ]
 
 
@@ -32,7 +33,14 @@ indent-style = "space"
 
 [tool.taskipy.tasks]
 
-run = "python scripts/build/main.py"
+# Fluxo normal de produção: converte pendências e permanece observando content/md.
+run = "python scripts/build/watcher.py"
+
+# Conversão pontual preservada para manutenção, testes e uso manual.
+convert = "python scripts/build/main.py"
+
+# Converte apenas os Markdown pendentes e encerra.
+once = "python scripts/build/watcher.py --once"
 
 lint = "ruff check ."
 
