@@ -1,0 +1,12 @@
+interface:
+  display_name: "Materiais do Museu de Inform\xE1tica"
+  short_description: "Pesquisa e produ\xE7\xE3o dos itens da exposi\xE7\xE3o"
+  default_prompt: Use $produzir-material-museu-informatica para produzir o material
+    completo de um novo item do acervo.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
